@@ -1,0 +1,31 @@
+name: Deploy to Firebase
+
+on:
+  push:
+    branches:
+      - main  # adjust if your main branch has a different name
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'  # adjust node version as needed
+
+      - name: Install dependencies
+        run: npm install  # or yarn install if you're using yarn
+
+      - name: Build
+        run: npm run build  # adjust the command if needed
+
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting  # adjust options as needed
+        env:
+          FIREBASE_TOKEN:"1//0g_zWCkohISI2CgYIARAAGBASNwF-L9IrlL8Ewufa9B7YQZ1SzwEGQUMuV4o54B_dlMJc3yexXcLnUcq6qftu9-acZFINaObQpwE"
