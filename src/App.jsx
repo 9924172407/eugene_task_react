@@ -7,7 +7,7 @@ function App() {
     <>
       <div className="flex justify-center align-middle">
         <Link to={"/"} className="p-5 bg-blue-600 text-white m-2">
-          Product List{" "}
+          Fire Base Demo Project 
         </Link>
         <Link
           to={"/product-addEdit"}
